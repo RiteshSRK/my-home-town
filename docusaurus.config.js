@@ -41,6 +41,22 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        pwaHead: [
+          { tagName: 'link', rel: 'icon', href: '/img/logo-192.png' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
+          { tagName: 'meta', name: 'theme-color', content: '#3b82f6' },
+        ],
+      },
+    ],
+    ['vercel-analytics', { debug: true, mode: 'auto' }],
+  ],
+
   presets: [
     [
       'classic',
